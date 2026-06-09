@@ -22,9 +22,12 @@ def analyze_logs(logs): #функція читання файлу
         level_match = re.search(r"<Level>(\d)</Level>", text)
         if level_match:
             l = level_match.group(1)
-            if l in ["1", "2"]:
-                level = "ERROR"
+            if l == "1":
+                level = "CRITICAL"
                 description = "Критична помилка в роботі системи"
+            if l == "2":
+                level = "ERROR"
+                description = "Помилка або збій системи, входу"
             elif l == "3":
                 level = "WARNING"
                 description = "Потенційно небезпечна подія"
