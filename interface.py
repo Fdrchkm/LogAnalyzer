@@ -69,7 +69,6 @@ class LogViewer:
         self.suspicious_events = list(analyze_logs(logs))
         self.output.delete(1.0, tk.END)
 
-        # Оновлений словник статистики (Додано CRITICAL)
         stats = {"CRITICAL": 0, "ERROR": 0, "FAILED": 0, "WARNING": 0}
         for event in self.suspicious_events:
             level = event.get("level", "")
